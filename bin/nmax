@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'max_numbers'
+
+size = ARGV.first.to_i
+if ARGV.size != 1 || size <= 0
+  puts 'cat sample_data_40GB.txt | nmax 10000'
+  exit
+end
+
+finder = MaxNumbers::NumbersFinder.new(size)
+finder.call($stdin)
+puts finder.array
